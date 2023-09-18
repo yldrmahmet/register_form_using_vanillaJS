@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Başlıksız Belge</title>
+<style type="text/css">
+#sayfa{ border:1px solid #000; width:640px; height:550px; margin:60px auto; padding:0 0 0 10px; font:18px tahoma;}
+#baslik{ border:2px dashed #FFF; width:300px; height:50px; font:30px tahoma; background:#96C; color:#FFF; margin:10px auto 20px auto; line-height:50px; text-align:center;}
+#kod{ width:108px; height:28px; background:#ccc; font:25px tahoma; color:#00f; text-align:center; border:1px solid #F00}
+#button { background:#000; color:#fff; margin:0 0 0 50px; width:100px; height:30px; border-radius:5px;}
+#button:hover{ background:#F00; cursor:pointer}
+#ad,#soyad,#kullaniciadi,#email,#parola,#guvenlik{ border:1px solid #bbb; color:#ababab; background:#fff; border-radius:5px; height:25px; }
+#gun,#ay{ height:25px; width:50px; border-radius:5px;}
+#yil{ height:25px; width:75px; border-radius:5px;}
+span{ color:#f00; font:12px tahoma;}
+</style>
+<script type="text/javascript">
+function fonk()
+{
+	var kodlar="";
+	for(var i=1; i<=6; i++)
+	{
+		if(Math.round(Math.random())==0)
+		{
+		kodlar=kodlar+String.fromCharCode(65+25*Math.random());
+		}
+		else
+		{
+		kodlar=kodlar+String.fromCharCode(48+9*Math.random());
+		}
+	}
+	document.getElementById("kod").innerHTML=kodlar;		
+}
+
+function metinsil(x)
+{
+	document.getElementById(x).value="";
+	document.getElementById(x).style.background="#fff7db";
+	document.getElementById(x).style.color="#000";
+}
+function cikis(x,y)
+{
+	
+	document.getElementById(x).style.background="#fff";
+	if(y=="")
+	{
+	document.getElementById(x).style.color="#ababab";
+	if(x=="ad")
+		document.getElementById(x).value="adinizi giriniz";
+	if(x=="soyad")
+		document.getElementById(x).value="soyadinizi giriniz";
+	if(x=="kullaniciadi")
+		document.getElementById(x).value="kullanici adinizi giriniz";
+	if(x=="email")
+		document.getElementById(x).value="e-mail giriniz";
+	if(x=="guvenlik")
+		document.getElementById(x).value="guvenlik kodunu	 giriniz";
+	}
+}
+function mesajver()
+{
+	if(document.getElementById("ad").value="adinizi giriniz")
+		document.getElementById("aduyari").innerHTML="adinizi girmediniz";
+	if(document.getElementById("soyad").value="soyadinizi giriniz")
+		document.getElementById("soyaduyari").innerHTML="soyadinizi girmediniz";
+	if(document.getElementById("kullaniciadi").value="kullanici adinizi giriniz")
+		document.getElementById("kaduyari").innerHTML="kullanici adinizi girmediniz";
+	if(document.getElementById("email").value="e-mail giriniz")
+		document.getElementById("emailuyari").innerHTML="emailinizi girmediniz";
+	if(document.getElementById("guvenlik").value="guvenlik kodunu giriniz")
+		{document.getElementById("guvenlikuyari").innerHTML="guvenlik kodu girmediniz";}
+	else if(document.getElementById("kod").value!=document.getElementById("guvenlik").value)
+		document.getElementById("guvenlikuyari").innerHTML="girilen kod yanlis";
+	
+	
+}
+</script>
+</head>
+
+<body onLoad="fonk()">
+<div id="sayfa">
+<div id="baslik">uyelik formu</div>
+<table width="630">
+  <tr>
+    <td width="180" height="30">ADI:</td>
+    <td width="270"><input value="adinizi giriniz" id="ad" type="text"  onFocus="metinsil(this.id)" onBlur="cikis(this.id,this.value)"></td>
+    <td width="180"><span id="aduyari"></span></td>
+  </tr>
+  <tr>
+    <td height="30">SOYADI:</td>
+    <td><input value="soyadinizi giriniz" id="soyad" type="text" onFocus="metinsil(this.id)" onBlur="cikis(this.id,this.value)"></td>
+    <td><span id="soyaduyari"></span></td>
+  </tr>
+  <tr>
+    <td height="30">KULLANICI ADI:</td>
+    <td><input value="kullanici adinizi giriniz" id="kullaniciadi" type="text" onFocus="metinsil(this.id)" onBlur="cikis(this.id,this.value)"></td>
+    <td><span id="kaduyari"></span></td>
+  </tr>
+  <tr>
+    <td height="30">PAROLA:</td>
+    <td><input id="parola" value="" type="password" onFocus="metinsil(this.id)" onBlur="cikis(this.id,this.value)"></td>
+    <td><span id="parolauyari"></span></td>
+  </tr>
+  <tr>
+    <td height="30">E-MAIL:</td>
+    <td><input value="e-mail giriniz" id="email" type="email" onFocus="metinsil(this.id)" onBlur="cikis(this.id,this.value)"></td>
+    <td><span id="emailuyari"></span></td>
+  </tr>
+  <tr>
+    <td height="30">DOGUM TARIHI:</td>
+    <td><select id="gun">
+<option>gun</option>
+<option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+    </select>
+    <select id="ay">
+      <option>ay</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select>
+    <select id="yil">
+      <option>yil</option>
+      <option>1970</option>
+      <option>1971</option>
+      <option>1972</option>
+      <option>1973</option>
+      <option>1974</option>
+      <option>1975</option>
+      <option>1976</option>
+      <option>1977</option>
+      <option>1978</option>
+      <option>1979</option>
+      <option>1980</option>
+      <option>1981</option>
+      <option>1982</option>
+      <option>1983</option>
+      <option>1984</option>
+      <option>1985</option>
+      <option>1986</option>
+      <option>1987</option>
+      <option>1988</option>
+      <option>1989</option>
+      <option>1990</option>
+      <option>1991</option>
+      <option>1992</option>
+      <option>1993</option>
+      <option>1994</option>
+      <option>1995</option>
+      <option>1996</option>
+      <option>1997</option>
+      <option>1998</option>
+      <option>1999</option>
+      <option>2000</option>
+      <option>2001</option>
+      <option>2002</option>
+      <option>2003</option>
+      <option>2004</option>
+      <option>2005</option>
+      <option>2007</option>
+      <option>2008</option>
+      <option>2009</option>
+      <option>2010</option>
+      <option>2011</option>
+      <option>2012</option>
+      <option>2013</option>
+      <option>2014</option>
+      <option>2015</option>
+      <option>2016</option>
+      <option>2017</option>
+      <option>2018</option>
+    </select>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="30">DOGUM YERI:</td>
+    <td><select>
+    <option>seciniz</option>
+      <option value="1">istanbul(avrupa)</option>
+      <option value="2">ankara</option>
+      <option value="3">izmir</option>
+      <option value="4">istanbul(anadolu)</option>
+      <option value="5">trabzon</option>
+      <option value="6">antalya</option>
+      <option value="7">adana</option>
+      <option value="8">bursa</option>
+      <option value="9">erzurum</option>
+      <option value="10">konya</option>
+      <option value="11">sakarya</option>
+      <option value="12">canakkale</option>
+    </select></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="30">CINSIYET:</td>
+    <td><input name="cins" id="erkek" type="radio" checked="checked">erkek<input name="cins" id="kadin" type="radio">kadin</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="30">HOBILER:</td>
+    <td>
+    <input type="checkbox">muzik
+    <input type="checkbox">sanat 
+    <input type="checkbox">spor
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+  	
+    <td><input value="guvenlik kodunu giriniz" id="guvenlik" type="text"  onFocus="metinsil(this.id)" onBlur="cikis(this.id,this.value)"></td>
+    <td height="30"><div id="kod"></div></td>
+    <td><span id="guvenlikuyari"></span></td>
+  </tr>
+  <tr>
+    <td height="30"></td>
+    <td></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="30">&nbsp;</td>
+    <td><input type="button" value="GONDER" id="button" onClick="mesajver()"></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+</div>
+</body>
+</html>
